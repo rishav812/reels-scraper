@@ -1,0 +1,57 @@
+What We Achieved
+
+Built a Node.js + Express API with Playwright that scrapes Instagram Reels data for public accounts.
+
+Implemented:
+
+Reel link extraction (collects /reel/ URLs from profile pages).
+
+Scrolling mechanism to fetch multiple reels.
+
+Error handling for:
+
+Private accounts (returns 403)
+
+Not found usernames (returns 404)
+
+Login required / captcha detection (429)
+
+Caching with TTL to reduce repeated scraping and speed up responses.
+
+Rate limiting middleware to avoid abuse.
+
+Dockerized API (optional bonus) so it runs consistently across environments.
+
+Deployment on Render, with a live API endpoint.
+
+⚠️ Limitations Due to Instagram’s Login Wall
+
+Instagram has tightened its anti-scraping protections in 2025. Because of this, certain data could not be reliably fetched without logging in or using premium proxies:
+
+Login Wall for Profiles
+
+When visiting many Instagram profiles (even public ones) from cloud environments (e.g. Render, Docker), Instagram forces a login redirect.
+
+On local machines, scraping may work (because of IP reputation / fewer restrictions), but on cloud servers, you often get only the login page HTML.
+
+Video URL Extraction (video_url)
+
+Instagram delivers video files (.mp4) via GraphQL/API calls that require either:
+
+A logged-in session, or
+
+A valid guest token.
+
+Since login automation is out of scope (and against Instagram ToS), the API cannot provide direct video download links.
+
+Engagement Metrics (likes, views, comments)
+
+These values are also behind GraphQL endpoints that check for login.
+
+Result: API returns null for these fields.
+
+Posted Timestamp (posted_at)
+
+The timestamp is embedded in the GraphQL JSON payload.
+
+Without login / API access, this field is not available, so it also returns null.

@@ -16,6 +16,7 @@ export async function getReelLinks(
 
 
     const html = await page.content();
+    console.log("html>>>", html);
     if (
       html.includes("Sorry, this page isn't available") ||
       html.includes("Page Not Found")

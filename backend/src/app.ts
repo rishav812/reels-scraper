@@ -13,9 +13,11 @@ app.use(express.json());
 app.use(routes);
 
 
-app.listen(SERVER_PORT, () => {
-  console.log(`Server started on port ${SERVER_PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
+
 
 process.on("SIGINT", async () => {
   console.log("Shutting down gracefully...");

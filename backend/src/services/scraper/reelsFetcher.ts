@@ -29,11 +29,11 @@ export async function getReelLinks(
       throw err;
     }
     
-    if (html.includes("log in")) {
-      const err = new Error("captcha_or_login_required");
-      (err as any).code = 429;
-      throw err;
-    }
+    // if (html.includes("log in")) {
+    //   const err = new Error("captcha_or_login_required");
+    //   (err as any).code = 429;
+    //   throw err;
+    // }
 
     const uniqueLinks = new Set<string>();
     let lastHeight: any = 0;

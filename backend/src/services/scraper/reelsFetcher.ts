@@ -12,7 +12,7 @@ export async function getReelLinks(
   const profileUrl = `https://www.instagram.com/${username}/`;
 
   try {
-    await page.goto(profileUrl, { waitUntil: "networkidle", timeout: 45000 });
+    await page.goto(profileUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
 
 
     const html = await page.content();

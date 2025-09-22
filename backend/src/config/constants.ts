@@ -12,9 +12,13 @@ export const BROWSER_CONTEXT_OPTIONS = {
   userAgent:
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
   viewport: { width: 1366, height: 768 },
-  javaScriptEnabled: true,
   locale: "en-US",
-};
+  javaScriptEnabled: true,
+  // 👇 add these
+  extraHTTPHeaders: {
+    "Accept-Language": "en-US,en;q=0.9",
+  }
+}
 
 // API settings
 export const DEFAULT_REELS_LIMIT = 30;

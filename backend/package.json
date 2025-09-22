@@ -6,7 +6,7 @@
     "start": "node dist/app.js",
     "build": "tsc",
     "dev": "nodemon --watch src --ext ts,json --exec \"tsx src/app.ts\"",
-    "postinstall": "npx playwright install --with-deps"
+    "postinstall": "npx playwright install chromium"
   },
   "keywords": [],
   "author": "",
